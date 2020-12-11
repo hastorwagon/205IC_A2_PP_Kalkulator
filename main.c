@@ -2,31 +2,37 @@
 
 int main() {
     printf("Wpisz działanie\n");
-    float x, y, wynik;
+    int x, y;
+    float wynik;
     char znak;
-    scanf ("%f %c %f", &x, &znak, &y);
+    scanf("%d %c %d", &x, &znak, &y);
 
-    switch(znak)
-    {
+    switch (znak) {
         case '+':
-            wynik=x+y;
-        break;
+            wynik = (float) x + y;
+            break;
+
         case '-':
-            wynik=x-y;
-        break;
+            wynik = (float) x - y;
+            break;
 
         case '*':
-            wynik=x*y;
-        break;
+            wynik = (float) x * y;
+            break;
 
         case '/':
-            wynik=x/y;
-        break;
+            if (y == 0 || x == 0) {
+                wynik = 0;
+                break;
+            } else if (y != 0 || x != 0) {
+                wynik = (float) x / y;
+                break;
+            }
 
         default:
-            printf("Niepoprawny symbol\n");
-            break;
+            printf("Niepoprawny symbol");
     }
+
     printf("Wynik=%1f", wynik);
-        return 0;
+    return 0;
 }
